@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/index.css');
+@import './styles/patterns/dots.css';
+@import './styles/patterns/grid.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Cascadia Code', monospace;
+  }
+  
+  body {
+    @apply antialiased;
+    background-color: #0a0f1a;
+  }
+
+  pre, code {
+    font-family: 'Cascadia Code', monospace !important;
+  }
+
+  /* Custom Scrollbar Styles */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.05);
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-md bg-opacity-20 border border-white/10;
+    background-color: rgba(17, 24, 39, 0.7);
+  }
+
+  .glass-card {
+    @apply glass-effect rounded-xl shadow-lg transition-all duration-300;
+  }
+
+  .glass-button {
+    @apply glass-effect px-4 py-2 rounded-lg hover:bg-opacity-30 transition-all duration-300;
+  }
+
+  /* Custom scrollbar for code blocks */
+  .syntax-highlighter::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .syntax-highlighter::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .syntax-highlighter::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  .syntax-highlighter::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+/* Texture pattern */
+.texture-pattern {
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+  background-size: 24px 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 0;
+}
